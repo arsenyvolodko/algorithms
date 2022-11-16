@@ -1,4 +1,4 @@
-# returns index of the first occurrence of the element x in the sorted array if it's exists
+# returns index of the first occurrence of the element x in sorted array if it's exists
 # or index where it will be placed if element is missed
 def leftmost_bin_search(array: list, x: int):
     l = 0
@@ -12,7 +12,7 @@ def leftmost_bin_search(array: list, x: int):
     return r if r != -1 else 0
 
 
-# returns index of the last occurrence of the element x in the sorted array if it's exists
+# returns index of the last occurrence of the element x in sorted array if it's exists
 # or index where it will be placed if element is missed
 def rightmost_bin_search(array: list, x: int):
     l = 0
@@ -26,7 +26,7 @@ def rightmost_bin_search(array: list, x: int):
     return r - 1
 
 
-# returns index of the first occurrence of the element x in the sorted array if it's exists, else -1
+# returns index of the first occurrence of the element x in sorted array if it's exists, else -1
 def contains(array: list, x: int):
     x_ind = leftmost_bin_search(array, x)
     if not (0 <= x_ind < len(array)) or array[x_ind] != x:
