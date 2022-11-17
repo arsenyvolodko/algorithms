@@ -50,7 +50,7 @@ class AVL:
         return node
 
     def remove(self, key: int):
-        if self.exists(key):
+        if self.contains(key):
             self.__root = self.__remove_util(self.__root, key)
             self.__cnt -= 1
 
@@ -146,23 +146,23 @@ class AVL:
             return 0
         return self.__get_height(node.left) - self.__get_height(node.right)
 
-    def exists(self, key: int):
-        q = self.__exists_in(self.__root, key)
+    def contains(self, key: int):
+        q = self.__contains_util(self.__root, key)
         if q is None:
             return False
         else:
             return True
 
-    def __exists_in(self, node, key):
+    def __contains_util(self, node, key):
 
         if node is None or node.val == key:
             return node
 
         if node.val < key:
-            return self.__exists_in(node.right, key)
+            return self.__contains_util(node.right, key)
 
         else:
-            return self.__exists_in(node.left, key)
+            return self.__contains_util(node.left, key)
 
     def next(self, key: int):
         if self.__cnt == 0:
